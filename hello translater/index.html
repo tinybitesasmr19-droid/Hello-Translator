@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌎 Hello Translator — Speak • Detect • Translate • Understand</title>
+  <meta name="description" content="Hello Translator — translate text, speak to speak with voice recognition, and detect languages from images." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="wrap">
+    <header class="site-header">
+      <h1 class="brand">🌎 <span class="grad-text">Hello Translator</span></h1>
+      <p class="tagline">Speak • Detect • Translate • Understand</p>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="t-title">
+        <h2 class="card-title" id="t-title">✨ Text Translator</h2>
+        <p class="card-sub">Choose your languages, type anything, and translate instantly.</p>
+
+        <div class="lang-row">
+          <div class="field">
+            <label for="fromLang">From Language</label>
+            <select id="fromLang"></select>
+          </div>
+          <button class="swap" id="swapBtn" type="button" title="Swap languages" aria-label="Swap languages">⇄</button>
+          <div class="field">
+            <label for="toLang">To Language</label>
+            <select id="toLang"></select>
+          </div>
+        </div>
+
+        <p class="flow-label">Original Text</p>
+        <textarea id="sourceText" placeholder="Enter text to translate…" aria-label="Text to translate"></textarea>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="translateBtn" type="button">Translate</button>
+          <button class="btn" id="copyBtn" type="button">Copy</button>
+          <button class="btn" id="speakBtn" type="button">🔊 Speak</button>
+          <button class="btn" id="clearBtn" type="button">Clear</button>
+        </div>
+
+        <div class="arrow" aria-hidden="true">↓</div>
+
+        <p class="flow-label">Translated Text</p>
+        <div class="result-box empty" id="textResult" aria-live="polite">Your translation will appear here.</div>
+      </section>
+
+      <section class="card" aria-labelledby="s-title">
+        <h2 class="card-title" id="s-title">🗣️ Speak to Speak</h2>
+        <p class="card-sub">Talk in your language and hear it back in the target language.</p>
+
+        <div class="mic-area">
+          <button class="mic-btn" id="micBtn" type="button" aria-label="Start listening">🎤</button>
+          <span class="status" id="micStatus">Ready to listen</span>
+        </div>
+
+        <p class="flow-label">Recognized Speech</p>
+        <div class="result-box empty" id="speechText" aria-live="polite">Nothing recognized yet.</div>
+
+        <div class="arrow" aria-hidden="true">↓</div>
+
+        <p class="flow-label">Translated Text</p>
+        <div class="result-box empty" id="speechResult" aria-live="polite">Your translation will appear here.</div>
+
+        <div class="btn-row">
+          <button class="btn" id="speechCopyBtn" type="button">Copy</button>
+          <button class="btn" id="speechSpeakBtn" type="button">🔊 Speak</button>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="i-title">
+        <h2 class="card-title" id="i-title">📷 Detect Language from Image</h2>
+        <p class="card-sub">Capture or upload a picture with text to detect its language and translate it.</p>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="cameraBtn" type="button">Camera</button>
+          <button class="btn" id="galleryBtn" type="button">Gallery</button>
+        </div>
+
+        <input class="hidden-input" type="file" id="cameraInput" accept="image/*" capture="environment" />
+        <input class="hidden-input" type="file" id="galleryInput" accept="image/*" />
+
+        <div class="preview-wrap">
+          <img id="imgPreview" alt="Selected image preview" />
+        </div>
+
+        <div id="detectedWrap" style="display:none">
+          <span class="detected" id="detectedLang">Detected language: —</span>
+        </div>
+
+        <p class="flow-label">Extracted Text</p>
+        <div class="result-box empty" id="ocrText" aria-live="polite">No image analysed yet.</div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="ocrTranslateBtn" type="button" disabled>Translate Extracted Text</button>
+        </div>
+
+        <div class="arrow" aria-hidden="true">↓</div>
+
+        <p class="flow-label">Translated Text</p>
+        <div class="result-box empty" id="ocrResult" aria-live="polite">Your translation will appear here.</div>
+
+        <div class="btn-row">
+          <button class="btn" id="ocrCopyBtn" type="button">Copy</button>
+          <button class="btn" id="ocrSpeakBtn" type="button">🔊 Speak</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">🌎 Hello Translator — works best in Chrome, Edge or Safari.</footer>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
