@@ -1,0 +1,10 @@
+{
+  "name": "Hello Translator",
+  "short_name": "Translator",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#05060f",
+  "theme_color": "#3b82f6",
+  "description": "Speak, detect and translate multiple languages.",
+  "icons": []
+}
